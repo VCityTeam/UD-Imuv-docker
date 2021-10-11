@@ -26,7 +26,7 @@ ARG DEBCONF_NONINTERACTIVE_SEEN=true
 RUN echo "tzdata tzdata/Areas select Europe" > preseed.txt
 RUN echo "tzdata tzdata/Zones/Europe select Lyon" >> preseed.txt
 RUN debconf-set-selections preseed.txt
-RUN apt-get install -y imagemagick graphicsmagick
+RUN apt-get install -y imagemagick graphicsmagick wget
 
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
