@@ -16,5 +16,4 @@ docker run [--detach] --rm -t vcity:imuv
 
 and open a web browser on URL `http://localhost:8000/`
 
-Note: in the above `docker run` command the optionnal `-d` argument requires the container to run in detached mode,
-
+Note: in the above `docker run` command the optionnal `-d` argument requires the container to run in detached mode
