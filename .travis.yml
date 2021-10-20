@@ -10,9 +10,9 @@ jobs:
       script:
         - docker build -t vcity:imuv Context
         - docker run --rm --detach -t vcity:imuv
-        - travis_wait 2 
-        - docker stop $(docker ps -a -q --filter ancestor=vcity:ud-viz-examples --format="{{.ID}}")
-    - stage: "Markdown link checks"
+        - travis_wait 2
+        - docker stop $(docker ps -a -q --filter ancestor=vcity:imuv --format="{{.ID}}")
+    - stage: 'Markdown link checks'
       language: node_js
       node_js: 12
       script:
@@ -24,4 +24,3 @@ jobs:
           if [ $warnings -gt $FAILURE_THRESHOLD ]; then
             exit 1;
           fi
-
