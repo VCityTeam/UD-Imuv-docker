@@ -26,7 +26,7 @@ ARG DEBCONF_NONINTERACTIVE_SEEN=true
 RUN echo "tzdata tzdata/Areas select Europe" > preseed.txt
 RUN echo "tzdata tzdata/Zones/Europe select Lyon" >> preseed.txt
 RUN debconf-set-selections preseed.txt
-RUN apt-get install -y imagemagick graphicsmagick
+RUN apt-get install -y imagemagick graphicsmagick wget
 
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
@@ -46,5 +46,9 @@ RUN npm run build
 
 # In order to change the port edit UD-Imuv/server/assets/config/config.json
 # and change the port and folder attributes
-EXPOSE 8000
-CMD [ "node", "./index.js" ]
+# EXPOSE 8000
+
+#copy secret env variables
+COPY "./env.json" ./
+
+CMD ["node", "./index.js"]
