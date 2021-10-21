@@ -51,4 +51,14 @@ RUN npm run build
 #copy secret env variables
 COPY "./env.json" ./
 
+RUN echo "test"
+
+ARG FIREBASE_API_KEY
+ENV FIREBASE_API_KEY=${FIREBASE_API_KEY}
+ARG BBB_SECRET
+ENV BBB_SECRET=${BBB_SECRET}
+
+COPY "./bindSecretKey.js" ./
+RUN node bindSecretKey.js FIREBASE_API_KEY BBB_SECRET
+
 CMD ["node", "./index.js"]
