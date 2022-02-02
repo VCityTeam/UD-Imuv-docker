@@ -40,6 +40,11 @@ Then run the container e.g. with
 ```bash
 docker run [--detach] --rm -t vcity:imuv
 ```
+Run with redirection of port 
+
+```bash
+docker run -p 0.0.0.0:443:8000/tcp --detach --rm -t vcity:imuv
+```
 
 and open a web browser on URL `http://localhost:8000/`
 
