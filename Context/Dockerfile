@@ -28,10 +28,12 @@ RUN echo "tzdata tzdata/Zones/Europe select Lyon" >> preseed.txt
 RUN debconf-set-selections preseed.txt
 RUN apt-get install -y imagemagick graphicsmagick wget
 
+ARG checkoutName=master
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
 ######### Builds the client application
 WORKDIR UD-Imuv/client
+RUN git checkout $checkoutName
 RUN npm install
 RUN npm run build
 

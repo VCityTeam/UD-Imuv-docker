@@ -7,9 +7,23 @@ Build the docker image with
 ```bash
 docker build -t vcity:imuv Context
 ```
+
 no cache options :
+
 ```bash
 docker build --no-cache -t vcity:imuv Context
+```
+
+If you want specify a branch name or commit name for Imuv use this
+
+```bash
+docker build -t vcity:imuv --build-arg checkoutName=name Context
+```
+
+no cache options :
+
+```bash
+docker build --no-cache -t vcity:imuv --build-arg checkoutName=nameContext
 ```
 
 Note: To communicate with the firebase and big blue button back-end the build step need an env.json file in the Context folder.
@@ -40,7 +54,8 @@ Then run the container e.g. with
 ```bash
 docker run [--detach] --rm -t vcity:imuv
 ```
-Run with redirection of port 
+
+Run with redirection of port
 
 ```bash
 docker run -p 0.0.0.0:443:8000/tcp --detach --rm -t vcity:imuv
