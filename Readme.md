@@ -23,7 +23,7 @@ docker build -t vcity:imuv --build-arg checkoutName=name Context
 no cache options :
 
 ```bash
-docker build --no-cache -t vcity:imuv --build-arg checkoutName=nameContext
+docker build --no-cache -t vcity:imuv --build-arg checkoutName=name Context
 ```
 
 Note: To communicate with the firebase and big blue button back-end the build step need an env.json file in the Context folder.
