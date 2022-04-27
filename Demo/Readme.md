@@ -64,6 +64,15 @@ curl -X GET \
 
 ## Trouble shooting
 
+### Inspecting the mongodb content
+
+```bash
+docker run -it --rm  mongo:4.4.7 mongo --host <FQDN>:1338 -u mygogodancer -p mygogodummypass
+> use test
+> db.GameScore.find()
+```
+
+### Running individual docker commands
 In case some manual troubleshooting is required, containers can be
 run from cli with the following commands
 
