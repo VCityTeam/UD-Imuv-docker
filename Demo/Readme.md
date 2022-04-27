@@ -7,9 +7,8 @@ The only pre-requisite is to have a host with a running
 [docker compose](https://docs.docker.com/compose/)
 command installed.
 
-If you wish to modify the default ports (as well as other parameters) used by
-this demo then you might consider editing the [`.env`](.env) docker-compose
-environment file.
+Copy the [`env-default`](env-default) to `.env` file docker-compose environment
+file and customize it to fit your needs.
 
 >>**Caveat emptor**:
 >>when starting the server for the first time make sure to
