@@ -54,6 +54,14 @@ that should provide you with an answer of the form
 {"objectId":"8A0YN6GkJ7","createdAt":"2022-04-26T16:33:59.551Z"}
 ```
 
+You can then assert that writing went all the way by reading with
+
+```bash
+curl -X GET \
+  -H "X-Parse-Application-Id: my_parse_app_id" \
+  http://localhost:1337/parse/classes/GameScore/8A0YN6GkJ7
+```
+
 ## Trouble shooting
 
 In case some manual troubleshooting is required, containers can be
