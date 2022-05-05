@@ -51,8 +51,8 @@ RUN npm run build
 # EXPOSE 8000
 
 #copy secret env variables
-ARG envJSON='./env.json'
-RUN echo "ENVJSON: $envJSON"
-COPY $envJSON ./
+# ARG envJSON='./env.json'
+# RUN echo "ENVJSON: $envJSON"
+# COPY $envJSON ./
 
 CMD ["node", "./index.js"]
