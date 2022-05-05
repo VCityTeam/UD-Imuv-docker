@@ -52,6 +52,7 @@ RUN npm run build
 
 #copy secret env variables
 ARG envJSON='./env.json'
+RUN echo "ENVJSON: $envJSON"
 COPY $envJSON ./
 
 CMD ["node", "./index.js"]
