@@ -49,6 +49,12 @@ example of the env.json:
 
 ```
 
+Use this command for pass the Context\env.json to Dockerfile
+
+```
+docker build -t vcity:imuv  --build-arg ENVJSON=$((cat Context\env.json).replace('"','\""'))  Context
+```
+
 Then run the container e.g. with
 
 ```bash

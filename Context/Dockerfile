@@ -32,7 +32,7 @@ ARG checkoutName=master
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
 ######### Builds the client application
-WORKDIR UD-Imuv/client
+WORKDIR /UD-Imuv/client
 RUN git checkout $checkoutName
 RUN npm install
 RUN npm run build
@@ -51,6 +51,8 @@ RUN npm run build
 # EXPOSE 8000
 
 #copy secret env variables
-COPY "./env.json" ./
+ARG ENVJSON=\""{ }\""
+RUN echo $ENVJSON > ./env.json
+
 
 CMD ["node", "./index.js"]
