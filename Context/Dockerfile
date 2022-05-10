@@ -50,8 +50,4 @@ RUN npm run build
 # and change the port and folder attributes
 # EXPOSE 8000
 
-#copy secret env variables
-ARG envJSON='./env.json'
-COPY $envJSON ./
-
 CMD ["node", "./index.js"]
