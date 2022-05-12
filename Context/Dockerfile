@@ -32,7 +32,7 @@ ARG checkoutName=master
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
 ######### Builds the client application
-WORKDIR UD-Imuv/client
+WORKDIR /UD-Imuv/client
 RUN git checkout $checkoutName
 RUN npm install
 RUN npm run build
@@ -49,9 +49,5 @@ RUN npm run build
 # In order to change the port edit UD-Imuv/server/assets/config/config.json
 # and change the port and folder attributes
 # EXPOSE 8000
-
-#copy secret env variables
-ARG envJSON='./env.json'
-COPY $envJSON ./
 
 CMD ["node", "./index.js"]
