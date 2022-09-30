@@ -35,7 +35,6 @@ RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 WORKDIR /UD-Imuv/client
 RUN git checkout $checkoutName
 RUN npm install
-RUN npm run build
 
 ######### Install the Imuv server 
 # Note: the ImuvServer serves two things
@@ -44,10 +43,9 @@ RUN npm run build
 #     in `client` directory
 WORKDIR /UD-Imuv/server
 RUN npm install
-RUN npm run build
 
 # In order to change the port edit UD-Imuv/server/assets/config/config.json
 # and change the port and folder attributes
 # EXPOSE 8000
 
-CMD ["node", "./index.js"]
+CMD ["node", "./bin/deploy.js"]

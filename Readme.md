@@ -26,14 +26,16 @@ no cache options :
 docker build --no-cache -t vcity:imuv --build-arg checkoutName=name Context
 ```
 
-Note: To communicate with the firebase and big blue button back-end the build step need an .env file in the Context folder.
+Note: .env file is used to specify the environment variables for the container. You can use the UD-Imuv/master/env-default file as a template.
 
 example of the .env:
 
 ```bash
-wget -cO -  https://raw.githubusercontent.com/VCityTeam/UD-Imuv/master/server/default.env  > .env
+wget -cO -  https://raw.githubusercontent.com/VCityTeam/UD-Imuv/master/env-default  > .env
 # Fill the .env
 ```
+
+> WARNING : It's not recommended to change IMUV_PORT and IMUV_CLIENT_FOLDER
 
 Then run the container e.g. with
 
