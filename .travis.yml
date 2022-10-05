@@ -12,15 +12,18 @@ jobs:
         - docker run --rm --detach -t vcity:imuv
         - travis_wait 2
         - docker stop $(docker ps -a -q --filter ancestor=vcity:imuv --format="{{.ID}}")
-    - stage: 'Markdown link checks'
+    - stage: "Markdown link checks"
       language: node_js
-      node_js: 12
-      script:
+      node_js: 16
+      before_install:
+        - npm --version
+      install:
         - npm install --global remark-cli remark-validate-links
+      env:
+        - FAILURE_THRESHOLD=0
+      script:
         - remark -u validate-links .
-        - |
-          export FAILURE_THRESHOLD=0
-          export warnings=`remark -u validate-links . 2>&1 | grep warning | grep "Link to unknown" | wc -l`
+        - export warnings=`remark -u validate-links . 2>&1 | grep warning | grep "Link to unknown" | wc -l` &&
           if [ $warnings -gt $FAILURE_THRESHOLD ]; then
-            exit 1;
+          exit 1;
           fi
