@@ -19,10 +19,10 @@ If you want specify a branch name or commit name for Imuv use this (by default i
 ```bash
 docker build -t vcity:imuv --build-arg checkoutName=master Context
 ```
-
-Note: .env file is used to specify the environment variables for the container. You can use the UD-Imuv/master/env-default file as a template.
-
 ## Env Variables
+
+.env file is used to specify the environment variables for the container. You can use the UD-Imuv/master/env-default file as a template.
+
 
 Get the env-default file from the UD-Imuv repository and copy it in a .env file.
 
@@ -32,6 +32,9 @@ wget -cO -  https://raw.githubusercontent.com/VCityTeam/UD-Imuv/master/env-defau
 ```
 
 You can have descriptions of the variables in the [UD-Imuv Readme](https://github.com/VCityTeam/UD-Imuv#set-the-environment-variables).
+
+
+Note: If you have not launch a parse-server and a mongodb service as explain [here](https://github.com/VCityTeam/UD-Imuv#install-parse-server-and-mongodb-optionnal) some features will be not available.
 
 ## Run the docker image
 
@@ -47,4 +50,4 @@ docker run -p 0.0.0.0:8042:8000/tcp [--detach] --rm --env-file .env -t vcity:imu
 - --env-file : specify the .env file
 - -t : tag of the image
 
-and open a web browser on URL `http://localhost:8042/`
+and open a web browser on URL `http://localhost:8042/` 
