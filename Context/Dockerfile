@@ -30,18 +30,12 @@ RUN apt-get install -y imagemagick graphicsmagick wget
 
 RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
-######### Install Imuv client dependencies
-WORKDIR /UD-Imuv/client
+######### Install Imuv  dependencies
+WORKDIR /UD-Imuv/
 ARG checkoutName=main
 RUN git checkout $checkoutName
 RUN npm install
 
-######### Install Imuv server dependencies 
-# Note: the ImuvServer serves two things
-#  1. the game server part (where avatars are, collissions...)
-#  2. the http server for the client (ExpressJS based)
-WORKDIR /UD-Imuv/server
-RUN npm install
 
 ######## Deploy the Imuv application
 # 1. build client bundle + server bundle (with .env variables)
