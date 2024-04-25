@@ -38,6 +38,6 @@ RUN npm install
 
 
 ######## Deploy the Imuv application
-# 1. build client bundle + server bundle (with .env variables)
+# 1. build client bundles (with .env variables)
 # 2. run server appplication
 CMD ["node", "./bin/start.js"]
