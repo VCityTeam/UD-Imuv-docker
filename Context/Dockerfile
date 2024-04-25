@@ -32,7 +32,7 @@ RUN git clone https://github.com/VCityTeam/UD-Imuv.git
 
 ######### Install Imuv client dependencies
 WORKDIR /UD-Imuv/client
-ARG checkoutName=master
+ARG checkoutName=main
 RUN git checkout $checkoutName
 RUN npm install
 
